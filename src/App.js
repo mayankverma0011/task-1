@@ -1,5 +1,3 @@
-
-
 import React, { Component } from 'react'
 import './App.css'
 export default class App extends Component {
@@ -37,7 +35,9 @@ export default class App extends Component {
         items: prevState.items.concat(obj),
         value: "",
       }),
-    
+      () => {
+        this.setdata();
+      }
     );
   
   }
@@ -57,7 +57,22 @@ export default class App extends Component {
   };
   
   //====================setdata in localstorage==========================//
+  setdata() {
+    localStorage.setItem(`todo`, JSON.stringify([...this.state.items]))
 
+  }
+  //=============get data in localstorage=========================//
+  getDataFromLocalStorage() {
+    const storedData = localStorage.getItem("todo");
+    return storedData ? JSON.parse(storedData) : null;
+  }
+  //==================call the get data function==================//
+  componentDidMount() {
+    const storedItems = this.getDataFromLocalStorage();
+    if (storedItems) {
+      this.setState({ items: storedItems });
+    }
+  }
   //=========delete item========//
   deleteItem = (itemid) => {
     this.setState({
@@ -130,3 +145,9 @@ export default class App extends Component {
     )
   }
 }
+
+
+
+
+
+
