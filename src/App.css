@@ -1,38 +1,125 @@
-.App {
-  text-align: center;
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#todo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-color: aliceblue; */
+    width: 700px;
+    height: auto;
+    padding: 40px;
+    border-radius: 16px;
+    background: aliceblue;
+  box-shadow: 8px 8px 16px #cccccc,
+    -8px -8px 16px #f4f4f4;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+#inp {
+    border: 0px;
+    outline: 0px;
+    padding: 10px;
+    width: 250px;
+    margin: 20px 0px;
+
+}
+
+#main {
+    border: 1px solid black;
+    margin-left: 180px;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.data {
+    display: flex;
+    /* justify-content: space-around; */
+    margin-left: 100px;
+    margin-top: 5px;
+    position: relative;
+}
+
+#mk {
+    position: absolute;
+    left: 71%;
+}
+
+#mk i {
+    padding-inline: 5px;
+}
+
+h1 {
+    text-align: center;
+}
+
+i {
+    color: red;
+}
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+  
   }
+/*=================================media query for tablet ========================================*/
+
+@media(max-width:768px){
+    #todo{
+     width: 580px;
+    }
+
+    #main{
+     margin-inline: 116px;
+    }
+
+    #inp {
+        width: 230px;
+    }
+    .data{
+      margin-left: 50px;
+    }
+    
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/*=================================media query for phone ========================================*/
+
+@media(max-width:425px){
+    #todo{
+     width: 360px;
+     top: 50%;
+    }
+
+    #main{
+     margin-inline: 29px;
+     padding: 6px;
+    }
+
+    #inp {
+        width: 190px;
+        padding: 6px;
+    }
+    .data{
+      margin-left: 17px;
+    }
+    
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media(max-width:320px){
+    #todo{
+        width: 300px;
+        top: 50%;
+    }
+    #main{
+        margin-inline: 0px;
+    }
+    .data{
+        margin-left: 0px;
+    }
+    #mk{
+        left: 77%;
+    }
 }
